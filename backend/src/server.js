@@ -4,7 +4,12 @@ const cors = require('cors');
 const routes = require('./routes');
 const server = express();
 
-mongoose.connect('mongodb+srv://omni:omni@cluster0-fwrdb.mongodb.net/omnistack8?retryWrites=true&w=majority', {useNewUrlParser: true});
+mongoose.connect('mongodb+srv://omni:omni@cluster0-fwrdb.mongodb.net/omnistack8?retryWrites=true&w=majority', {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useFindAndModify: false,
+    useCreateIndex: true,
+});
 
 
 server.use(cors());
